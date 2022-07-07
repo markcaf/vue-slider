@@ -3,6 +3,9 @@ const app = new Vue(
         el: '#app',
 
         data: {
+
+            activeImageIndex: 0,
+
             slides: [
                 {
                     image: 'img/01.jpg',
@@ -31,5 +34,24 @@ const app = new Vue(
                 }
             ],
         },
-    }
+
+        methods: {
+            nextPicture: function () {
+                if (this.activeImageIndex === this.slides.length - 1) {
+                    this.activeImageIndex = 0;
+                } else {
+                    this.activeImageIndex++;
+                };
+            },
+
+            previousPicture: function () {
+                if (this.activeImageIndex === 0) {
+                    this.activeImageIndex = this.slides.length - 1;
+                } else {
+                    this.activeImageIndex--;
+                };
+            },
+
+        },
+    },
 );
