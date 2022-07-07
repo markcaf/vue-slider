@@ -6,6 +6,8 @@ const app = new Vue(
 
             activeImageIndex: 0,
 
+            autoPlay: null,
+
             slides: [
                 {
                     image: 'img/01.jpg',
@@ -56,6 +58,18 @@ const app = new Vue(
                 this.activeImageIndex = indexToBeChanged;
             },
 
+            startAutoplay: function(){
+                if (this.autoPlay === null){
+                    this.autoPlay = setInterval( () => {
+                        this.nextPicture();
+                    }, 3000);
+                }
+            },
+
         },
+
+        created(){
+            this.startAutoplay();
+        }
     },
 );
