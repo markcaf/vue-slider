@@ -52,6 +52,10 @@ const app = new Vue(
                 };
             },
 
+            changePictureToIndex: function( indexToBeChanged ){
+                this.activeImageIndex = indexToBeChanged;
+            },
+
         },
     },
 );
