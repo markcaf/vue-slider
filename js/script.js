@@ -66,6 +66,11 @@ const app = new Vue(
                 }
             },
 
+            stopAutoplay: function(){
+                clearInterval(this.autoPlay);
+                this.autoPlay = null;
+            }
+
         },
 
         created(){
